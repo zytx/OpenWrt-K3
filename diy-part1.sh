@@ -40,5 +40,11 @@ sed -i '140,412d' target/linux/bcm53xx/image/Makefile
 sed -i 's/$(USB3_PACKAGES) k3screenctrl/luci-app-k3screenctrl/g' target/linux/bcm53xx/image/Makefile
 echo '=========Remove other devices of bcm53xx OK!========='
 
+#1.'asus_dhd24' 2.'ac88u_20' 3.'69027'
+firmware='ac88u_20'
+echo '替换K3的无线驱动为ac88u_20'
+wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.${firmware} -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+echo '=========Replace k3 wireless firmware OK!========='
+
 echo './feeds.conf.default:'
 cat feeds.conf.default
