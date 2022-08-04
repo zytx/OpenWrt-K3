@@ -13,6 +13,11 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
+echo '添加软件源'
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+echo '=========Add feed source OK!========='
+
 # echo '添加K3屏幕插件'
 # rm -rf package/lean/k3screenctrl
 # git clone --depth=1 https://github.com/Hill-98/luci-app-k3screenctrl.git package/k3/luci-app-k3screenctrl
