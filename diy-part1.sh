@@ -24,14 +24,9 @@ echo '=========Add feed source OK!========='
 # git clone --depth=1 https://github.com/Hill-98/openwrt-k3screenctrl.git package/k3/openwrt-k3screenctrl
 # echo '=========Add k3screen plug OK!========='
 
-# echo '添加lwz322的K3屏幕插件'
-# rm -rf package/lean/luci-app-k3screenctrl
-# git clone https://github.com/yangxu52/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
-# echo '=========Add k3screen plug OK!========='
-
-# echo '替换lwz322的K3屏幕驱动插件'
-# rm -rf package/lean/k3screenctrl
-# git clone https://github.com/yangxu52/k3screenctrl_build.git package/lean/k3screenctrl/
+# echo '屏幕插件'
+git clone https://github.com/yangxu52/luci-app-k3screenctrl.git package/k3/luci-app-k3screenctrl
+git clone https://github.com/yangxu52/k3screenctrl_build.git package/k3/k3screenctrl
 # echo '=========Replace k3screen drive plug OK!========='
 
 echo '移除bcm53xx中的其他机型'
