@@ -29,17 +29,16 @@ git clone https://github.com/yangxu52/luci-app-k3screenctrl.git package/k3/luci-
 git clone https://github.com/yangxu52/k3screenctrl_build.git package/k3/k3screenctrl
 # echo '=========Replace k3screen drive plug OK!========='
 
-echo '移除bcm53xx中的其他机型'
-sed -i '421,453d' target/linux/bcm53xx/image/Makefile
-sed -i '140,412d' target/linux/bcm53xx/image/Makefile
-sed -i 's/$(USB3_PACKAGES) k3screenctrl/luci-app-k3screenctrl/g' target/linux/bcm53xx/image/Makefile
-echo '=========Remove other devices of bcm53xx OK!========='
+
+sed -i '429,460d' target/linux/bcm53xx/image/Makefile
+sed -i '140,419d' target/linux/bcm53xx/image/Makefile
+sed -i 's/$(BRCMFMAC_4366C0) $(USB3_PACKAGES)/& k3screenctrl luci-app-k3screenctrl/' target/linux/bcm53xx/image/Makefile
 
 #1.'asus_dhd24' 2.'ac88u_20' 3.'69027'
-firmware='ac88u_20'
-echo '替换K3的无线驱动为ac88u_20'
-wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.${firmware} -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
-echo '=========Replace k3 wireless firmware OK!========='
+# firmware='ac88u_20'
+# echo '替换K3的无线驱动为ac88u_20'
+# wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.${firmware} -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+# echo '=========Replace k3 wireless firmware OK!========='
 
 echo './feeds.conf.default:'
 cat feeds.conf.default
