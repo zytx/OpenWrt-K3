@@ -14,8 +14,11 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 echo '添加软件源'
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+# sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+# sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+echo "src-git pw_packages https://github.com/xiaorouji/openwrt-passwall.git;packages" >> feeds.conf.default
+echo "src-git pw_luci https://github.com/xiaorouji/openwrt-passwall.git;luci" >> feeds.conf.default
+echo 'src-git unblockneteasemusic https://github.com/cnsilvan/luci-app-unblockneteasemusic.git' >> feeds.conf.default
 echo '=========Add feed source OK!========='
 
 # echo '添加K3屏幕插件'
